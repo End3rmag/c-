@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/Primarycolor"
+    app:cardCornerRadius="12dp"
+    tools:context=".ChangeStateFragmentDialog"
+    app:contentPadding="4dp">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <TextView
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sort_by"
+        android:textColor="@color/white"
+        android:textAppearance="@style/Subetitle2"
+        />
+    <RadioGroup
+android:id="@+id/ChangeStateMod"
+        android:paddingVertical="16dp"
+        android:paddingHorizontal="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sort_background">
+        <RadioButton
+            android:id="@+id/NumberCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/number"
+            style="@style/RadioButtonStyle"
+            android:textAppearance="@style/Body3"
+            />
+        <RadioButton
+            android:id="@+id/NameCheck"
+            android:layout_marginTop="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textAppearance="@style/Body3"
+            style="@style/RadioButtonStyle"/>
+    </RadioGroup>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
