@@ -1,4 +1,4 @@
-package com.example.pokemonapp.Screen
+package com.example.pokemonapp.ui.Screen
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

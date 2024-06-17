@@ -45,7 +45,7 @@ android:id="@+id/ChangeStateMod"
             android:layout_height="wrap_content"
             android:text="@string/name"
             android:textAppearance="@style/Body3"
-            style="@style/RadioButtonStyle"/>
+            style="@style/RadioButtonStyle" />
     </RadioGroup>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
