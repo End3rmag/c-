@@ -14,9 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.PokemonApp"
         tools:targetApi="31">
-        <activity
-            android:name=".SecondActivity"
-            android:exported="false" />
+
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">

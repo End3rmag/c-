@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
+    android:id="@+id/PokemonCard"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="8dp"
+    app:cardUseCompatPadding="true"
     app:cardElevation="2dp"
     android:layout_height="wrap_content">
     <LinearLayout
+        android:background="@color/white"
         android:layout_width="104dp"
         android:layout_height="108dp"
         android:orientation="vertical">
@@ -14,6 +17,7 @@
             android:textAppearance="@style/Body3"
             android:id="@+id/PokemonNumber"
             android:textAlignment="textEnd"
+            android:paddingEnd="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/shimmer_999"/>
@@ -22,7 +26,7 @@
             android:layout_height="72dp"
             android:id="@+id/PokemonImage"
             android:layout_gravity="center"
-            android:src="@drawable/_b3a8bec29962d2348bfe5ddc97cdee2"/>
+            />
         <TextView
             android:textColor="@color/ShimmerTextColor"
             android:textAppearance="@style/Body3"

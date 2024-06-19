@@ -9,4 +9,9 @@
     <string name="sort_by">Sort by:</string>
     <string name="shimmer_999">#999</string>
     <string name="shimmer_pokemon_name">Pokémon Name</string>
+    <string name="about">About</string>
+    <string name="weight">Weight</string>
+    <string name="height">Height</string>
+    <string name="moves">Moves</string>
+    <string name="base_stats">Base Stats</string>
 </resources>

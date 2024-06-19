@@ -8,6 +8,7 @@ import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.pokemonapp.data.Model.PokemonItemResponse
 import com.example.pokemonapp.data.PokemonApplication
 import com.example.pokemonapp.data.repository.PokemoRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
@@ -33,16 +34,9 @@ class MainScreenViewModel(private val repository: PokemoRepository):ViewModel() 
     }
     fun getPokemons() {
         _stateMainScreen.update { it.copy(isLoading = true) }
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.getPokemons().collect{ result ->
-                if (result.isSuccessful){
-                    val pokemonItemsResponse = result.body()
-                    _stateMainScreen.update { it.copy(isLoading = false, pokemonList = pokemonItemsResponse!!.results) }
-                }
-                else{
-                            _stateMainScreen.update {
-                                it.copy(isLoading = false ,isError = true)}
-                }
+                    _stateMainScreen.update { it.copy(isLoading = false, pokemonList = result) }
             }
         }
     }
