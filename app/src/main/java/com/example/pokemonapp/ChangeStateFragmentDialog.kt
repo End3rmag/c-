@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Gravity
 import android.widget.RadioGroup
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.pokemonapp.databinding.FragmentChangeStateDialogBinding
@@ -22,7 +23,7 @@ class ChangeStateFragmentDialog() : DialogFragment() {
             val builder = AlertDialog.Builder(it)
             builder.create()
         }?:throw IllegalStateException()
-        val viewModel by viewModels<MainScreenViewModel>({requireParentFragment()})
+        val viewModel by activityViewModels<MainScreenViewModel>()
         val view = layoutInflater.inflate(R.layout.fragment_change_state_dialog, null)
         dialog.setView(view)
         changeStateBinding = FragmentChangeStateDialogBinding.bind(view)

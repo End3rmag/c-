@@ -67,11 +67,12 @@
         app:layout_constraintVertical_bias="1.0">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/PokemonType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
             android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"></androidx.recyclerview.widget.RecyclerView>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -109,6 +110,7 @@
                         android:src="@drawable/weight" />
 
                     <TextView
+                        android:id="@+id/WeightTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -117,7 +119,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/WeightTextView"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/weight"
@@ -150,6 +152,7 @@
                         android:src="@drawable/vector" />
 
                     <TextView
+                        android:id="@+id/HeightTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -158,7 +161,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/HeightTextView"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/height"
@@ -228,9 +231,13 @@
             android:orientation="horizontal">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/PokemonStats"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:listitem="@layout/pokemon_stats"
+                tools:itemCount="1"
+                >
 
             </androidx.recyclerview.widget.RecyclerView>
 
