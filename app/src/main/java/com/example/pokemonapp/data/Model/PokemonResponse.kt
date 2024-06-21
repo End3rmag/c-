@@ -8,11 +8,15 @@ data class PokemonResponse(
     val height: Int,
     val order:Int,
     val weight:Int,
-    val species: UrlRespource,
+    val species: UrlResource,
     val types: List<TypesResource>,
-    val abilities: List<UrlRespource>,
+    val abilities: List<AbilitiesResponse>,
     val stats : List<StatsResponse>,
     val sprites:SpritesResponse
+)
+
+data class AbilitiesResponse(
+    val ability: UrlResource
 )
 data class SpritesResponse(
     val other: OfficialSpritesResponse
@@ -28,14 +32,14 @@ data class OfficialArtWorkResponse(
 
 data class StatsResponse(
     val base_stat : Int,
-    val stat: UrlRespource
+    val stat: UrlResource
 )
-data class UrlRespource(
+data class UrlResource(
     val name: String,
     val url: String)
 
 data class TypesResource(
     val slot : Int,
-    val type : UrlRespource
+    val type : UrlResource
 )
 

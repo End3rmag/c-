@@ -25,20 +25,20 @@ class MainScreen : Fragment(R.layout.fragment_activity) {
         viewModel.setFragmentManager(parentFragmentManager)
         viewModel.getPokemons()
         lifecycleScope.launch {
-            viewModel.stateMainScreen.collect{
-                if (it.isNumberSorted){
+            viewModel.stateMainScreen.collect {
+                if (it.isNumberSorted) {
                     setSortByNumber(view)
                 }
-                if (it.isNameSorted){
+                if (it.isNameSorted) {
                     setSortByName(view)
                 }
-               if (!it.pokemonList.isNullOrEmpty()){
-                   val adapter = PokemonAdapter(it.pokemonList){
-                       viewModel.selectPokemon(R.color.white, it)
-                       viewModel.navigateToAboutScreen()
+                if (!it.pokemonList.isNullOrEmpty()) {
+                    val adapter = PokemonAdapter(it.pokemonList) {
+                        viewModel.selectPokemon(it)
+                        viewModel.navigateToAboutScreen()
 
-                   }
-                   mainScreenViewBinding?.PokemonList?.adapter = adapter
+                    }
+                    mainScreenViewBinding?.PokemonList?.adapter = adapter
                 }
             }
         }

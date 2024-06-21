@@ -2,22 +2,14 @@ package com.example.pokemonapp.ui.models
 
 import android.app.Application
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.CreationExtras
 import com.example.pokemonapp.ChangeStateFragmentDialog
-import com.example.pokemonapp.NavController
 import com.example.pokemonapp.R
-import com.example.pokemonapp.data.Model.PokemonItemResponse
 import com.example.pokemonapp.data.Model.PokemonResponse
 import com.example.pokemonapp.data.PokemonApplication
-import com.example.pokemonapp.data.repository.PokemoRepository
 import com.example.pokemonapp.ui.Screen.AboutScreen
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -36,9 +28,12 @@ class MainScreenViewModel(application: Application):AndroidViewModel(application
 
     private var _fragmentManager:FragmentManager? = null
 
-    fun selectPokemon(color:Int, pokemonResponse: PokemonResponse){
-        _stateAboutScreen.update {
-            it.copy(color,pokemonResponse)
+    fun selectPokemon(pokemonResponse: PokemonResponse){
+        val pokemonSpecies = repository.getSpeciesByName(pokemonResponse.name)
+        viewModelScope.launch {
+            pokemonSpecies.collect{resp ->
+                _stateAboutScreen.update { it.copy(color = resp.color.name, pokemonResponse = pokemonResponse) }
+            }
         }
     }
 
@@ -71,6 +66,7 @@ class MainScreenViewModel(application: Application):AndroidViewModel(application
     fun navigateToAboutScreen(){
         _fragmentManager?.commit {
             replace<AboutScreen>(R.id.Host_fragment)
+            addToBackStack(null)
         }
     }
 
